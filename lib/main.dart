@@ -1,4 +1,3 @@
-// ignore_for_file: unnecessary_const
 
 import 'package:connerr/screens/splash.dart';
 
