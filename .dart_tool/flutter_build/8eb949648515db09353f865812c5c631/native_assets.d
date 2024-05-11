@@ -1,0 +1,1 @@
+ D:\\ibrahim\\projects\\flutter\\connerr\\.dart_tool\\flutter_build\\8eb949648515db09353f865812c5c631\\native_assets.yaml: 
