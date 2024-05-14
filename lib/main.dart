@@ -1,28 +1,26 @@
 
-import 'package:connerr/screens/splash.dart';
-
+import 'package:conner/conner_app.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'core/di/dependancy_injection.dart';
+import 'core/helper/simple_bloc_observer.dart';
+import 'core/routing/app_router.dart';
 
-void main() {
-  runApp(const Conner());
+void main() async{
+    setupGetIt();
+await ScreenUtil.ensureScreenSize();
+  WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = SimpleBlocObserver();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  runApp(Phoenix(
+    child: ConnerApp(
+      appRouter:AppRouter(),
+      ),
+    ),
+  );
 }
 
-class Conner extends StatelessWidget {
-  const Conner({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ScreenUtilInit(
-        designSize: const Size(360, 690),
-        minTextAdapt: true,
-        splitScreenMode: true,
-        // Use builder only if you need to use library outside ScreenUtilInit context
-        builder: (BuildContext context, child) {
-          return const MaterialApp(
-            debugShowCheckedModeBanner: false,
-            home: Splash(),
-          );
-        });
-  }
-}

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/connerr.iml" filepath="$PROJECT_DIR$/connerr.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android/connerr_android.iml" filepath="$PROJECT_DIR$/android/connerr_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/conner.iml" filepath="$PROJECT_DIR$/conner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/conner_android.iml" filepath="$PROJECT_DIR$/android/conner_android.iml" />
     </modules>
   </component>
 </project>
