@@ -14,8 +14,8 @@ class UpdatePasswordTopBk extends StatelessWidget {
             'assets/images/nmn.png',
             height: 200.h,
           ),
-          
-          
-        ]);
+        
+        
+              ]);
   }
 }
