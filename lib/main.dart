@@ -1,5 +1,5 @@
-
 import 'package:conner/conner_app.dart';
+import 'package:conner/features/splash/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,18 +9,18 @@ import 'core/di/dependancy_injection.dart';
 import 'core/helper/simple_bloc_observer.dart';
 import 'core/routing/app_router.dart';
 
-void main() async{
-    setupGetIt();
-await ScreenUtil.ensureScreenSize();
+void main() async {
+  setupGetIt();
+  await ScreenUtil.ensureScreenSize();
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = SimpleBlocObserver();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-  runApp(Phoenix(
-    child: ConnerApp(
-      appRouter:AppRouter(),
+  runApp(
+    Phoenix(
+      child: ConnerApp(
+        appRouter: AppRouter(),
       ),
     ),
   );
 }
-

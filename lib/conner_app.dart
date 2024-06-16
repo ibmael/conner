@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/routing/app_router.dart';
 import 'core/routing/routes.dart';
+
 class ConnerApp extends StatelessWidget {
   final AppRouter appRouter;
   const ConnerApp({super.key, required this.appRouter});
@@ -20,7 +21,6 @@ class ConnerApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
-    
         debugShowCheckedModeBanner: false,
         initialRoute: Routes.successfulyUpdatePasswordScreen,
         onGenerateRoute: appRouter.generateRoute,

@@ -18,16 +18,15 @@ class OnBoardingScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             AppTextButton(
-              buttonWidth: 200,
+                buttonWidth: 200,
                 buttonText: 'login',
                 backgroundColor: AppColor.buttonColor,
-        
                 onPressed: () {
                   context.pushNamed(Routes.loginScreen);
                 }),
-                verticalSpace(20),
+            verticalSpace(20),
             AppTextButton(
-              buttonWidth: 200,
+                buttonWidth: 200,
                 buttonText: 'SignUp',
                 backgroundColor: AppColor.buttonColor,
                 onPressed: () {

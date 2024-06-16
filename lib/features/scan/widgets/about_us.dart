@@ -77,7 +77,7 @@ class AboutUs extends StatelessWidget {
                   'connor application for corn diseases detection which we make to detect corn diseases in corn ',
                   style: TextStyle(
                     fontFamily: 'Boogaloo',
-                    fontSize: 26,
+                    fontSize: 24,
                     color: Color(0xff655B02),
                   ),
                 ),
