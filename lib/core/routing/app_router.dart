@@ -9,9 +9,6 @@ import '../../features/auth/otp/logic/check_code_cubit.dart';
 import '../../features/auth/otp/ui/otp.dart';
 import '../../features/auth/signup/logic/sign_up_cubit.dart';
 import '../../features/auth/signup/ui/signup_screen.dart';
-import '../../features/auth/update_password/logic/reset_password_cubit.dart';
-import '../../features/auth/update_password/ui/successfully_update_pass.dart';
-import '../../features/auth/update_password/ui/update_password.dart';
 import '../../features/onboarding/on_boarding_Screen.dart';
 import '../../features/scan/scan_Screen.dart';
 import '../../features/splash/splash.dart';
@@ -60,19 +57,12 @@ class AppRouter {
       case Routes.updatePasswordScreen:
         //////////////////////////type 'Null' is not a subtype of type 'String'????????
         
-        return CustomPageRoute(
-            child: BlocProvider(
-          create: (context) => getIt<ResetPasswordCubit>(),
-          child: UpdatePasswordScreen(),
-        ));
       case Routes.otpScreen:
         return CustomPageRoute(
             child: BlocProvider(
           create: (context) => getIt<CheckCodeCubit>(),
           child: const OtpScreen(),
         ));
-      case Routes.successfulyUpdatePasswordScreen:
-        return CustomPageRoute(child: const SuccessfulyUpdatePasswordScreen());
 
       default:
         return MaterialPageRoute(

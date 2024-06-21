@@ -1,3 +1,4 @@
+import 'package:conner/core/utilities/show_success_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:conner/core/helper/extensions.dart';
@@ -19,11 +20,14 @@ class OtpBlocListener extends StatelessWidget {
           current is CheckCodeError,
       listener: (context, state) => state.whenOrNull(
         checkCodeLoading: () => showLoadingDialog(context),
-
-        // checkCodeSuccess: (checkCodeResponse) {
-        //   context.pop();
-        //   // return showSuccessDialog(context);
-        // },
+        checkCodeSuccess: (checkCodeResponse) {
+          context.pop();
+          return showSuccessDialog(
+              context: context,
+              title: 'successfully',
+              routeName: Routes.loginScreen,
+              message: 'Password reset successfully');
+        },
         checkCodeError: (error) {
           context.pop();
           return showFailureDialog(

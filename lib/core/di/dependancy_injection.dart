@@ -1,7 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-
-
 import '../../features/auth/forget_password/data/repo/forget_password_repo.dart';
 import '../../features/auth/forget_password/logic/forget_password_cubit.dart';
 import '../../features/auth/login/data/repo/login_repo.dart';
@@ -10,8 +8,6 @@ import '../../features/auth/otp/data/repo/ckeck_code_repo.dart';
 import '../../features/auth/otp/logic/check_code_cubit.dart';
 import '../../features/auth/signup/data/repo/sign_up_repo.dart';
 import '../../features/auth/signup/logic/sign_up_cubit.dart';
-import '../../features/auth/update_password/data/repo/reset_password_repo.dart';
-import '../../features/auth/update_password/logic/reset_password_cubit.dart';
 import '../networking/api_service.dart';
 import '../networking/dio_factory.dart';
 
@@ -32,8 +28,5 @@ Future<void> setupGetIt() async {
   //otp
   getIt.registerLazySingleton<CheckCodeRepo>(() => CheckCodeRepo(getIt()));
   getIt.registerFactory<CheckCodeCubit>(() => CheckCodeCubit(getIt()));
-  //ResetPassword
-  getIt.registerLazySingleton<ResetPasswordRepo>( () => ResetPasswordRepo(getIt()));
-  getIt.registerFactory<ResetPasswordCubit>(() => ResetPasswordCubit(getIt()));
 
 }

@@ -13,7 +13,7 @@ class _ApiService implements ApiService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://tabibak.aboomarmediclub.com/api/';
+    baseUrl ??= 'https://conor.zewailacademy.com/api/';
   }
 
   final Dio _dio;
@@ -91,7 +91,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              'password/send-mail',
+              'password/forget-password',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -120,7 +120,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              'password/check-code',
+              'password/reset-password',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -130,35 +130,6 @@ class _ApiService implements ApiService {
               baseUrl,
             ))));
     final value = CheckCodeResponse.fromJson(_result.data!);
-    return value;
-  }
-
-  @override
-  Future<ResetPasswordResponse> resetPassword(
-      ResetPasswordRequestBody resetPasswordRequestBody) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(resetPasswordRequestBody.toJson());
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ResetPasswordResponse>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              'password/reset',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = ResetPasswordResponse.fromJson(_result.data!);
     return value;
   }
 

@@ -52,6 +52,8 @@ class _EmailAndPasswordTextState extends State<EmailAndPasswordText> {
                   return 'Please enter a valid password';
                 }
               },
+              controller: context.read<LoginCubit>().passwordController,
+
               
                           ),
             verticalSpace(12.h),

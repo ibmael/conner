@@ -7,13 +7,19 @@ import 'check_code_state.dart';
 class CheckCodeCubit extends Cubit<CheckCodeState> {
   final CheckCodeRepo _checkCodeRepo;
   CheckCodeCubit(this._checkCodeRepo) : super(const CheckCodeState.initial());
-  TextEditingController codee = TextEditingController();
+  TextEditingController otp = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   void emitCheckCodeState() async {
     emit(const CheckCodeState.checkCodeLoading());
     final response = await _checkCodeRepo.checkCode(CheckCodeRequestBody(
-      code: codee.text,
+      otp: otp.text,
+      email: email.text,
+      password: password.text,
+    
+
     ));
     response.when(
       success: (checkCodeResponse) {
@@ -21,7 +27,7 @@ class CheckCodeCubit extends Cubit<CheckCodeState> {
       },
       failure: (error) {
         emit(CheckCodeState.checkCodeError(
-            error: error.apiErrorModel.data?[0] ?? ''));
+            error: error.apiErrorModel.message ?? ''));
       },
     );
   }

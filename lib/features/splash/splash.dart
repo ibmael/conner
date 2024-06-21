@@ -1,3 +1,4 @@
+import 'package:conner/core/helper/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -36,7 +37,7 @@ class _SplashState extends State<Splash> with SingleTickerProviderStateMixin {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset('assets/images/logo.PNG'),
+          Image.asset(AppAsset.logo),
         ],
       ),
     );

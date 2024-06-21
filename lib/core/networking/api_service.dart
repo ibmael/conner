@@ -9,8 +9,6 @@ import '../../features/auth/otp/data/models/check_code_request_body.dart';
 import '../../features/auth/otp/data/models/check_code_response.dart';
 import '../../features/auth/signup/data/models/sign_up_request_body.dart';
 import '../../features/auth/signup/data/models/sign_up_response.dart';
-import '../../features/auth/update_password/data/models/reset_password_request_body.dart';
-import '../../features/auth/update_password/data/models/reset_password_response.dart';
 import 'api_constants.dart';
 part 'api_service.g.dart';
 
@@ -25,11 +23,9 @@ abstract class ApiService {
 
   @POST(ApiConstants.forgetPassword)
   Future<ForgetResponse> forget(@Body() ForgetRequestBody forgetRequestBody);
-  @POST(ApiConstants.checkcode)
+  @POST(ApiConstants.resetpassword)
   Future<CheckCodeResponse> checkCode(
       @Body() CheckCodeRequestBody ckeckCodeRequestBody);
-  @POST(ApiConstants.resetpassword)
-  Future<ResetPasswordResponse> resetPassword(
-      @Body() ResetPasswordRequestBody resetPasswordRequestBody);
+ 
 
 }

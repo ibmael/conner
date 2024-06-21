@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
-import 'package:conner/core/helper/extensions.dart';
-import 'package:conner/core/routing/routes.dart';
 import 'package:conner/core/theme/app_colors.dart';
 import 'package:conner/features/auth/otp/logic/check_code_cubit.dart';
 
@@ -21,19 +19,18 @@ class OtpTextField1 extends StatelessWidget {
         showFieldAsBox: true,
         cursorColor: AppColor.white,
         onSubmit: (String verificationCode) {
-          context.read<CheckCodeCubit>().codee.text = verificationCode;
-          verificationCode;
-          validateThenSendOtp(context);
-          context.pushNamed(Routes.updatePasswordScreen,
-              arguments: verificationCode);
+          context.read<CheckCodeCubit>().otp.text = verificationCode;
+          
+          // validateThenSendOtp(context);
+          
         },
       ),
     );
   }
 
-  void validateThenSendOtp(BuildContext context) {
-    if (context.read<CheckCodeCubit>().formKey.currentState!.validate()) {
-      context.read<CheckCodeCubit>().emitCheckCodeState();
-    }
-  }
+  // void validateThenSendOtp(BuildContext context) {
+  //   if (context.read<CheckCodeCubit>().formKey.currentState!.validate()) {
+  //     context.read<CheckCodeCubit>().emitCheckCodeState();
+  //   }
+  // }
 }

@@ -1,6 +1,6 @@
-import 'package:conner/core/helper/extensions.dart';
-import 'package:conner/core/routing/routes.dart';
+import 'package:conner/features/auth/login/logic/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/theme/app_colors.dart';
 import '../../../../../core/widgets/custom_widget/app_text_button.dart';
 import '../../../../../core/theme/styles.dart';
@@ -15,10 +15,16 @@ class LoginButton extends StatelessWidget {
       textStyle: AppStyle.font16WhiteSemiBold,
               backgroundColor: AppColor.buttonColor,
       onPressed: () {
-        context.pushNamed(Routes.scanScreen);
+        // context.pushNamed(Routes.scanScreen);
+        validateToLogin(context);
+      
 
-        // context.pushReplacementNamed(Routes.homeScreen);
       },
     );
+  }
+  void validateToLogin(BuildContext context) {
+    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+      context.read<LoginCubit>().emitLoginState();
+    }
   }
 }

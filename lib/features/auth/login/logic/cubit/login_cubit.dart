@@ -18,7 +18,8 @@ class LoginCubit extends Cubit<LoginState> {
     emit(const LoginState.loading());
     final response = await _loginRepo.login(
       LoginRequestBody(
-          email: emailController.text, password: passwordController.text),
+          email: emailController.text,
+           password: passwordController.text),
     );
     response.when(
       success: (loginResponse) {
@@ -26,7 +27,7 @@ class LoginCubit extends Cubit<LoginState> {
       },
       failure: (error) {
         emit(LoginState.error(
-            error: error.apiErrorModel.data?[0] ?? 'please try again later'));
+            error: error.apiErrorModel.message ?? 'please try again later'));
       },
     );
   }
