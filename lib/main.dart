@@ -6,6 +6,7 @@ import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/di/dependancy_injection.dart';
 import 'core/helper/simple_bloc_observer.dart';
+import 'core/networking/shared_preferences.dart';
 import 'core/routing/app_router.dart';
 
 void main() async {
@@ -15,9 +16,12 @@ void main() async {
   Bloc.observer = SimpleBlocObserver();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+       await CacheHelper.cacheInitializations();
+  String token = CacheHelper.getCacheData(key: 'token');
   runApp(
     Phoenix(
       child: ConnerApp(
+        token: token,
         appRouter: AppRouter(),
       ),
     ),

@@ -9,4 +9,6 @@ class Routes {
   
   static const String otpScreen = "/otpScreen";
   static const String updatePasswordScreen = "/updatePasswordScreen";
+  static const String uploadImage = "/uploadImage";
+
 }

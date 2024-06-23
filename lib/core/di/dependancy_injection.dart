@@ -1,3 +1,5 @@
+import 'package:conner/features/contact_us/data/repo/contact_us_repo.dart';
+import 'package:conner/features/contact_us/logic/cubit/contact_us_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import '../../features/auth/forget_password/data/repo/forget_password_repo.dart';
@@ -28,5 +30,9 @@ Future<void> setupGetIt() async {
   //otp
   getIt.registerLazySingleton<CheckCodeRepo>(() => CheckCodeRepo(getIt()));
   getIt.registerFactory<CheckCodeCubit>(() => CheckCodeCubit(getIt()));
+  //contactUs
+  getIt.registerLazySingleton<ContactUsRepo>(() => ContactUsRepo(getIt()));
+  getIt.registerFactory<ContactUsCubit>(() => ContactUsCubit(getIt()));
+
 
 }

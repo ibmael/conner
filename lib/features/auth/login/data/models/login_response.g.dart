@@ -9,42 +9,43 @@ part of 'login_response.dart';
 LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) =>
     LoginResponse(
       message: json['message'] as String?,
-      userData: json['data'] == null
+      data: json['data'] == null
           ? null
-          : UserData.fromJson(json['data'] as Map<String, dynamic>),
+          : Data.fromJson(json['data'] as Map<String, dynamic>),
       code: (json['code'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$LoginResponseToJson(LoginResponse instance) =>
     <String, dynamic>{
       'message': instance.message,
-      'data': instance.userData,
+      'data': instance.data,
       'code': instance.code,
     };
 
-UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
+Data _$DataFromJson(Map<String, dynamic> json) => Data(
       token: json['token'] as String?,
-      userDetails: json['user_details'] == null
+      user: json['user'] == null
           ? null
-          : UserDetails.fromJson(json['user_details'] as Map<String, dynamic>),
+          : User.fromJson(json['user'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{
+Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
       'token': instance.token,
-      'user_details': instance.userDetails,
+      'user': instance.user,
     };
 
-UserDetails _$UserDetailsFromJson(Map<String, dynamic> json) => UserDetails(
+User _$UserFromJson(Map<String, dynamic> json) => User(
       id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String?,
       email: json['email'] as String?,
-      image: json['image'] as String?,
+      createdAt: json['createdAt'] as String?,
+      updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$UserDetailsToJson(UserDetails instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'email': instance.email,
-      'image': instance.image,
+      'createdAt': instance.createdAt,
+      'updatedAt': instance.updatedAt,
     };

@@ -1,3 +1,4 @@
+import 'package:conner/core/networking/shared_preferences.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/models/login_request_body.dart';
@@ -17,12 +18,15 @@ class LoginCubit extends Cubit<LoginState> {
   void emitLoginState() async {
     emit(const LoginState.loading());
     final response = await _loginRepo.login(
+      
       LoginRequestBody(
           email: emailController.text,
            password: passwordController.text),
     );
     response.when(
-      success: (loginResponse) {
+      success: (loginResponse) async {
+         await CacheHelper.insertToCache(
+            key: 'token', value: loginResponse.data?.token ?? '');
         emit(LoginState.success(loginResponse));
       },
       failure: (error) {

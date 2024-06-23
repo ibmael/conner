@@ -4,34 +4,35 @@ part 'login_response.g.dart';
 @JsonSerializable()
 class LoginResponse {
   String? message;
-  // List<String>? data;
-  @JsonKey(name: 'data')
-  UserData? userData;
+  Data? data;
   int? code;
-  LoginResponse({this.message, this.userData, this.code});
-  factory LoginResponse.fromJson(Map<String, dynamic> json) =>
-      _$LoginResponseFromJson(json);
-}
 
+  LoginResponse({this.message, this.data, this.code});
+
+  factory LoginResponse.fromJson(Map<String, dynamic> json) => _$LoginResponseFromJson(json);
+}
 @JsonSerializable()
-class UserData {
+
+class Data {
   String? token;
-  @JsonKey(name: 'user_details')
-  UserDetails? userDetails;
+  User? user;
 
-  UserData({this.token, this.userDetails});
-  factory UserData.fromJson(Map<String, dynamic> json) =>
-      _$UserDataFromJson(json);
+  Data({this.token, this.user});
+  factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
+
+
 }
-
 @JsonSerializable()
-class UserDetails {
+
+class User {
   int? id;
   String? name;
   String? email;
-  String? image;
+  String? createdAt;
+  String? updatedAt;
 
-  UserDetails({this.id, this.name, this.email, this.image});
-  factory UserDetails.fromJson(Map<String, dynamic> json) =>
-      _$UserDetailsFromJson(json);
+  User({this.id, this.name, this.email, this.createdAt, this.updatedAt});
+  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+
+
 }

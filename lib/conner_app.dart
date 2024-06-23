@@ -6,7 +6,9 @@ import 'core/routing/routes.dart';
 
 class ConnerApp extends StatelessWidget {
   final AppRouter appRouter;
-  const ConnerApp({super.key, required this.appRouter});
+  final String? token;
+
+  const ConnerApp({super.key, required this.appRouter, this.token});
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +18,16 @@ class ConnerApp extends StatelessWidget {
         // systemNavigationBarColor: Colors.black,
       ),
     );
+    
     return ScreenUtilInit(
       designSize: const Size(375, 926),
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.splashScreen,
+        initialRoute: token != null && token != ""
+            ? Routes.scanScreen
+            : Routes.splashScreen,
         onGenerateRoute: appRouter.generateRoute,
       ),
     );

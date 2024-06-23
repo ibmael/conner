@@ -25,8 +25,8 @@ class AppRouter {
         return CustomPageRoute(child: const Splash());
  case Routes.onBoardingScreen:
         return CustomPageRoute(child: const OnBoardingScreen());
-      case Routes.scanScreen:
-        return CustomPageRoute(child: const ScanScreen());
+      // case Routes.scanScreen:
+      //   return CustomPageRoute(child: const ScanScreen());
 
       case Routes.signUpScreen:
         return CustomPageRoute(
@@ -63,6 +63,9 @@ class AppRouter {
           create: (context) => getIt<CheckCodeCubit>(),
           child: const OtpScreen(),
         ));
+        case Routes.scanScreen:
+        return CustomPageRoute(
+            child: const ScanImgScreen());
 
       default:
         return MaterialPageRoute(

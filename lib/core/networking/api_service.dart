@@ -1,3 +1,5 @@
+import 'package:conner/features/contact_us/data/model/contact_us_request.dart';
+import 'package:conner/features/contact_us/data/model/contact_us_response.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -26,6 +28,8 @@ abstract class ApiService {
   @POST(ApiConstants.resetpassword)
   Future<CheckCodeResponse> checkCode(
       @Body() CheckCodeRequestBody ckeckCodeRequestBody);
- 
+
+  @POST(ApiConstants.contactUs)
+  Future<ContactUsResponse> contactUs(@Body() ContactUsRequest contactUsRequest);
 
 }
